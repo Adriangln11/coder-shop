@@ -1,4 +1,4 @@
-import {fetching, URL, randomUser} from "./fetching.js"
+import {fetching, URL, randomUser, URL2} from "./fetching.js"
 
 
 
@@ -40,7 +40,7 @@ const checkSesion = () => {
         btnCart.classList.remove('d-none')
         btnLogout.classList.remove('d-none')
         welcome.innerText = localStorage.getItem('user')
-        setUserImage()
+        setUserImage(URL2)
     }else{
         btnLogin.classList.remove('d-none')
         btnSingup.classList.remove('d-none')
@@ -77,8 +77,8 @@ const validateUser = () => {
         warning.innerText = 'Datos no validos, verifica que la información sea correcta.'
     }
 }
-const setUserImage = async() => {
-    const res = await randomUser()
+const setUserImage = async(url) => {
+    const res = await randomUser(url)
     userImageElement.src = res.avatar
 }
 const randomRendering = async() => {
